@@ -73,11 +73,7 @@ export default function WhyBffPage() {
           title="Backed by Decades of Experience"
           subtitle="This isn't hype. It's a platform backed by decades of industry experience — from production to distribution to investor relations."
         >
-          <Button
-            asChild
-            size="lg"
-            className="h-12 rounded-xl bg-white px-8 text-zinc-950 hover:bg-white/90"
-          >
+          <Button asChild variant="solid" size="lg" className="h-12 px-8">
             <Link href="/#waitlist">Join the Waitlist</Link>
           </Button>
         </PageHero>

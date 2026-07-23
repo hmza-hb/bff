@@ -61,11 +61,7 @@ export default function FoundersClubPage() {
           title="Be an Early Believer"
           subtitle="As an early supporter and investor, you'll be part of a small group helping shape the future of film investing."
         >
-          <Button
-            asChild
-            size="lg"
-            className="h-12 rounded-xl bg-white px-8 text-zinc-950 hover:bg-white/90"
-          >
+          <Button asChild variant="solid" size="lg" className="h-12 px-8">
             <Link href="#join">Join the Founders Club</Link>
           </Button>
         </PageHero>

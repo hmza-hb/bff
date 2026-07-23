@@ -101,11 +101,7 @@ export function FeaturesSection({
         </motion.div>
 
         <div className="flex justify-center">
-          <Button
-            asChild
-            size="lg"
-            className="h-12 rounded-xl bg-white px-8 text-zinc-900 hover:bg-zinc-200"
-          >
+          <Button asChild variant="solid" size="lg" className="h-12 px-8">
             <Link href="/why-bff">Learn More</Link>
           </Button>
         </div>

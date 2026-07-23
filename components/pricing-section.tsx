@@ -72,8 +72,9 @@ export function PricingSection() {
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:mt-12 sm:flex-row">
           <Button
             asChild
+            variant="solid"
             size="lg"
-            className="h-12 w-full rounded-xl bg-white text-zinc-900 hover:bg-zinc-200 sm:w-auto sm:px-8"
+            className="h-12 w-full sm:w-auto sm:px-8"
           >
             <Link href="/founders-club">Explore Founders Club</Link>
           </Button>
@@ -81,7 +82,7 @@ export function PricingSection() {
             asChild
             variant="outline"
             size="lg"
-            className="h-12 w-full rounded-xl border-zinc-700 bg-transparent text-white hover:bg-zinc-800 sm:w-auto sm:px-8"
+            className="h-12 w-full sm:w-auto sm:px-8"
           >
             <Link href="/#waitlist">Join the Waitlist</Link>
           </Button>

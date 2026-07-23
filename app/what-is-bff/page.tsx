@@ -71,11 +71,7 @@ export default function WhatIsBffPage() {
           title="Film Investing Made Simple"
           subtitle="Big Film Fund gives everyday people the chance to invest in real Hollywood films, and share in the potential upside as those films earn."
         >
-          <Button
-            asChild
-            size="lg"
-            className="h-12 rounded-xl bg-white px-8 text-zinc-950 hover:bg-white/90"
-          >
+          <Button asChild variant="solid" size="lg" className="h-12 px-8">
             <Link href="/#waitlist">Join the Waitlist</Link>
           </Button>
         </PageHero>

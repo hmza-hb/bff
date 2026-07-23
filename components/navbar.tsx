@@ -91,21 +91,17 @@ export function Navbar({ variant = "solid" }: NavbarProps) {
           </Link>
           <Button
             asChild
+            variant="solid"
             size="sm"
-            className="hidden bg-white text-zinc-950 hover:bg-white/90 sm:inline-flex"
+            className="hidden sm:inline-flex"
           >
             <Link href="/#waitlist">Join the Waitlist</Link>
           </Button>
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <button
-                className={cn(
-                  "inline-flex h-10 w-10 items-center justify-center rounded-full border transition-colors lg:hidden",
-                  isOverlay
-                    ? "border-white/20 text-white hover:bg-white/10"
-                    : "border-zinc-700 text-white hover:bg-zinc-800"
-                )}
+                  <button
+                className="glass-btn inline-flex h-10 w-10 items-center justify-center lg:hidden"
                 aria-label="Open menu"
               >
                 <Menu className="h-5 w-5" />
@@ -162,7 +158,8 @@ export function Navbar({ variant = "solid" }: NavbarProps) {
                 </Link>
                 <Button
                   asChild
-                  className="mt-2 h-12 w-full bg-white text-zinc-950 hover:bg-white/90"
+                  variant="solid"
+                  className="mt-2 h-12 w-full"
                   onClick={() => setOpen(false)}
                 >
                   <Link href="/#waitlist">Join the Waitlist</Link>

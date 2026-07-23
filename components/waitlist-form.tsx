@@ -43,13 +43,14 @@ export function WaitlistForm({ compact = false }: { compact?: boolean }) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="h-12 flex-1 rounded-xl border-zinc-700 bg-zinc-900/80 text-white placeholder:text-zinc-500 focus-visible:ring-red-600/30"
+          className="h-12 flex-1 rounded-full border-white/15 bg-white/5 text-white placeholder:text-zinc-500 backdrop-blur-xl focus-visible:ring-white/20"
         />
         <Button
           type="submit"
           disabled={loading}
+          variant="solid"
           size="lg"
-          className="h-12 rounded-xl bg-white px-8 text-zinc-950 hover:bg-white/90"
+          className="h-12 px-8"
         >
           {loading ? "Joining..." : "Keep Me in the Loop"}
         </Button>

@@ -64,22 +64,13 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.45 }}
             className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row"
           >
-            <Button
-              asChild
-              size="lg"
-              className="h-12 rounded-xl bg-white px-8 text-zinc-950 hover:bg-white/90"
-            >
+            <Button asChild variant="solid" size="lg" className="h-12 px-8">
               <Link href="#waitlist">
                 Join the Waitlist
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="h-12 rounded-xl border-zinc-600 bg-transparent text-white hover:bg-white/5"
-            >
+            <Button asChild variant="outline" size="lg" className="h-12 px-8">
               <Link href="/what-is-bff">Learn More</Link>
             </Button>
           </motion.div>
@@ -105,7 +96,7 @@ export function Hero() {
           className="relative shrink-0"
         >
           <div className="absolute -inset-8 rounded-full bg-red-600/20 blur-3xl" />
-          
+        
         </motion.div>
       </div>
     </section>

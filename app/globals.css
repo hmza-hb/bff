@@ -136,6 +136,14 @@
     @apply border border-white/[0.06] bg-zinc-900/40 backdrop-blur-xl;
   }
 
+  .glass-btn {
+    @apply rounded-full border border-white/20 bg-white/10 text-white shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] backdrop-blur-xl transition-all duration-300 hover:border-white/30 hover:bg-white/20;
+  }
+
+  .glass-btn-solid {
+    @apply rounded-full border border-white/40 bg-white/90 text-zinc-950 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.5)] backdrop-blur-xl transition-all duration-300 hover:bg-white;
+  }
+
   .premium-glow {
     box-shadow: 0 0 80px -20px rgba(220, 38, 38, 0.25);
   }

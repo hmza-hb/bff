@@ -86,11 +86,7 @@ export default function WhyNowPage() {
           title="The Moment for Film Investing"
           subtitle="Regulation, technology, and audience demand have converged. Hollywood investing is finally open — and Big Film Fund is building the platform to lead it."
         >
-          <Button
-            asChild
-            size="lg"
-            className="h-12 rounded-xl bg-white px-8 text-zinc-950 hover:bg-white/90"
-          >
+          <Button asChild variant="solid" size="lg" className="h-12 px-8">
             <Link href="/#waitlist">Join the Waitlist</Link>
           </Button>
         </PageHero>

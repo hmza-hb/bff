@@ -123,7 +123,7 @@ export function FilmCarousel({
               variant="outline"
               size="icon"
               onClick={scrollPrev}
-              className="h-10 w-10 rounded-full border-zinc-700 bg-zinc-900/50 text-white hover:bg-zinc-800"
+              className="h-10 w-10"
             >
               <ChevronLeft className="h-4 w-4" />
             </Button>
@@ -131,7 +131,7 @@ export function FilmCarousel({
               variant="outline"
               size="icon"
               onClick={scrollNext}
-              className="h-10 w-10 rounded-full border-zinc-700 bg-zinc-900/50 text-white hover:bg-zinc-800"
+              className="h-10 w-10"
             >
               <ChevronRight className="h-4 w-4" />
             </Button>

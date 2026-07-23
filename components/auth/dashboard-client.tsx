@@ -63,7 +63,8 @@ export function DashboardClient() {
               variant="outline"
               size="sm"
               onClick={handleSignOut}
-              className="h-8 rounded-lg border-zinc-700 bg-transparent text-zinc-300 hover:bg-zinc-900 hover:text-white"
+              variant="outline"
+              className="h-8 text-zinc-300"
             >
               <LogOut className="h-3.5 w-3.5" />
               Sign out

@@ -340,7 +340,8 @@ export function AuthFlow() {
                     <Button
                       type="submit"
                       disabled={loading}
-                      className="mt-2 h-11 w-full rounded-lg bg-white text-zinc-950 hover:bg-zinc-200"
+                      variant="solid"
+                      className="mt-2 h-11 w-full"
                     >
                       {loading ? "Signing in…" : "Sign in"}
                       {!loading && <ArrowRight className="h-4 w-4" />}
@@ -490,7 +491,8 @@ export function AuthFlow() {
                     <Button
                       type="submit"
                       disabled={loading}
-                      className="mt-2 h-11 w-full rounded-lg bg-white text-zinc-950 hover:bg-zinc-200"
+                      variant="solid"
+                      className="mt-2 h-11 w-full"
                     >
                       {loading ? "Please wait…" : "Continue"}
                       {!loading && <ArrowRight className="h-4 w-4" />}
@@ -558,7 +560,8 @@ export function AuthFlow() {
                     <Button
                       type="submit"
                       disabled={loading || form.otp.length !== 6}
-                      className="h-11 w-full rounded-lg bg-white text-zinc-950 hover:bg-zinc-200"
+                      variant="solid"
+                      className="h-11 w-full"
                     >
                       {loading ? "Verifying…" : "Verify email"}
                     </Button>
@@ -663,7 +666,8 @@ export function AuthFlow() {
                         !form.termsAccepted ||
                         !form.riskAcknowledged
                       }
-                      className="h-11 w-full rounded-lg bg-white text-zinc-950 hover:bg-zinc-200"
+                      variant="solid"
+                      className="h-11 w-full"
                     >
                       {loading ? "Creating account…" : "Create account"}
                     </Button>
