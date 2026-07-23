@@ -18,15 +18,7 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center gap-12 px-4 pb-20 pt-28 sm:px-6 sm:pt-32 lg:flex-row lg:items-center lg:justify-between lg:gap-16 lg:px-8 lg:pb-24 lg:pt-36">
         <div className="flex max-w-2xl flex-col items-center text-center lg:items-start lg:text-left">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-red-600/20 bg-red-600/5 px-4 py-1.5 text-xs font-medium tracking-wider text-red-400 uppercase backdrop-blur-sm sm:text-sm"
-          >
-            <Sparkles className="h-3.5 w-3.5" />
-            Launching soon on WeFunder
-          </motion.div>
+        
 
           <h1 className="max-w-3xl text-balance text-4xl font-normal tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
             {"Hollywood Investing".split(" ").map((word, i) => (
@@ -113,16 +105,7 @@ export function Hero() {
           className="relative shrink-0"
         >
           <div className="absolute -inset-8 rounded-full bg-red-600/20 blur-3xl" />
-          <div className="premium-glow relative">
-            <Image
-              src="/logo.jpeg"
-              alt="Big Film Fund"
-              width={240}
-              height={240}
-              className="relative rounded-full object-cover ring-2 ring-white/10 sm:h-[280px] sm:w-[280px] lg:h-[320px] lg:w-[320px]"
-              priority
-            />
-          </div>
+          
         </motion.div>
       </div>
     </section>
