@@ -57,7 +57,9 @@ export function createAccount(input: {
   lastName: string;
 }): { ok: true; user: AuthUser } | { ok: false; error: string } {
   const accounts = readAccounts();
-  if (accounts.some((a) => a.email.toLowerCase() === input.email.toLowerCase())) {
+  if (
+    accounts.some((a) => a.email.toLowerCase() === input.email.toLowerCase())
+  ) {
     return { ok: false, error: "An account with this email already exists." };
   }
 
@@ -81,16 +83,16 @@ export function authenticate(
 ): { ok: true; user: AuthUser } | { ok: false; error: string } {
   const account = findAccount(email);
   if (!account) {
-    return { ok: false, error: "No account found with this email." };
+    return { ok: false, error: "Invalid email or password." };
   }
   if (account.password !== password) {
-    return { ok: false, error: "Incorrect password." };
+    return { ok: false, error: "Invalid email or password." };
   }
 
   const { password: _, ...user } = account;
   return { ok: true, user };
 }
 
-export async function simulateAuthDelay(ms = 800) {
-  await new Promise((r) => setTimeout(r, ms));
+export function simulateAuthDelay(ms = 900) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }

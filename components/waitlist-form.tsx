@@ -21,13 +21,11 @@ export function WaitlistForm({ compact = false }: { compact?: boolean }) {
   };
 
   return (
-    <div className={compact ? "" : "glass-card rounded-2xl p-6 sm:p-8"}>
+    <div className={compact ? "" : "border border-foreground/10 p-6 sm:p-8"}>
       {!compact && (
         <>
-          <h3 className="text-xl font-medium text-white">
-            Want to tell us more?
-          </h3>
-          <p className="mt-2 text-sm text-zinc-400">
+          <h3 className="text-xl font-display">Want to tell us more?</h3>
+          <p className="mt-2 text-sm text-muted-foreground">
             Enter your email below to join the BFF waitlist and newsletter.
           </p>
         </>
@@ -43,21 +41,20 @@ export function WaitlistForm({ compact = false }: { compact?: boolean }) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="h-12 flex-1 rounded-full border-white/15 bg-white/5 text-white placeholder:text-zinc-500 backdrop-blur-xl focus-visible:ring-white/20"
+          className="h-12 flex-1 rounded-full border-foreground/20 bg-background px-5"
         />
         <Button
           type="submit"
           disabled={loading}
-          variant="solid"
           size="lg"
-          className="h-12 px-8"
+          className="h-12 rounded-full bg-foreground px-8 text-background hover:bg-foreground/90"
         >
           {loading ? "Joining..." : "Keep Me in the Loop"}
         </Button>
       </form>
 
       {!compact && (
-        <p className="mt-4 text-xs text-zinc-500">
+        <p className="mt-4 text-xs text-muted-foreground">
           By signing up, you agree to receive email updates from Big Film Fund.
           You can unsubscribe at any time.
         </p>

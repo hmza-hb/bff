@@ -1,24 +1,30 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Host_Grotesk } from "next/font/google";
+import { Instrument_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "@/components/ui/sonner";
-import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
-const hostGrotesk = Host_Grotesk({
+const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
-  variable: "--font-host-grotesk",
+  variable: "--font-instrument",
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-instrument-serif",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains",
 });
 
 export const metadata: Metadata = {
-  title: "Big Film Fund | Hollywood Investing for Everyone",
+  title: "Big Film Fund | Hollywood Film Investing for Everyone",
   description:
-    "Own a stake in real Hollywood films. Hand-picked for high potential, transparent, and built for everyday investors. Launching soon on WeFunder.",
-  icons: {
-    icon: [{ url: "/logo.jpeg", type: "image/jpeg" }],
-    apple: "/logo.jpeg",
-  },
+    "Own real stakes in curated Hollywood films starting at $100. Transparent, SEC-regulated, and built for everyday investors.",
 };
 
 export default function RootLayout({
@@ -27,12 +33,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${hostGrotesk.variable} font-sans antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          {children}
-          <Toaster position="top-center" richColors theme="dark" />
-        </ThemeProvider>
+    <html lang="en">
+      <body
+        className={`${instrumentSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+      >
+        {children}
+        <Toaster />
         <Analytics />
       </body>
     </html>

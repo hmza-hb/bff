@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SiteLayout } from "@/components/site-layout";
-import { PageHero } from "@/components/page-hero";
-import { SectionHeader } from "@/components/section-header";
+import { SiteShell } from "@/components/landing/site-shell";
+import { PageHero } from "@/components/landing/page-hero";
+import { SectionHeader } from "@/components/landing/section-header";
 import { Button } from "@/components/ui/button";
 import {
   TrendingUp,
@@ -79,89 +79,84 @@ const goals = [
 
 export default function WhyNowPage() {
   return (
-    <SiteLayout>
-      <main>
-        <PageHero
-          badge="Why Now"
-          title="The Moment for Film Investing"
-          subtitle="Regulation, technology, and audience demand have converged. Hollywood investing is finally open — and Big Film Fund is building the platform to lead it."
+    <SiteShell>
+      <PageHero
+        badge="Why Now"
+        title="The Moment for Film Investing"
+        subtitle="Regulation, technology, and audience demand have converged. Hollywood investing is finally open — and Big Film Fund is building the platform to lead it."
+      >
+        <Button
+          asChild
+          size="lg"
+          className="h-12 rounded-full bg-foreground px-8 text-background hover:bg-foreground/90"
         >
-          <Button asChild variant="solid" size="lg" className="h-12 px-8">
-            <Link href="/#waitlist">Join the Waitlist</Link>
-          </Button>
-        </PageHero>
+          <Link href="/#waitlist">Join the Waitlist</Link>
+        </Button>
+      </PageHero>
 
-        <section className="border-b border-zinc-800/80 py-20 sm:py-28">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <SectionHeader
-              badge="Market Timing"
-              title="Six Reasons the Time Is Now"
-              align="center"
-              className="mx-auto mb-16 items-center"
-            />
+      <section className="border-y border-foreground/10 py-24 lg:py-32">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
+          <SectionHeader
+            badge="Market Timing"
+            title="Six Reasons the Time Is Now"
+            align="center"
+            className="mx-auto mb-16"
+          />
 
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {reasons.map((reason) => (
-                <div
-                  key={reason.title}
-                  className="glass-card group rounded-2xl p-8 transition-all hover:border-red-600/20"
-                >
-                  <div className="flex items-start justify-between">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-600/10 text-red-500">
-                      <reason.icon className="h-5 w-5" />
-                    </div>
-                    <div className="text-right">
-                      <p className="text-2xl font-normal text-white">
-                        {reason.stat}
-                      </p>
-                      <p className="text-xs text-zinc-500">{reason.statLabel}</p>
-                    </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {reasons.map((reason) => (
+              <div
+                key={reason.title}
+                className="group border border-foreground/10 p-8 transition-colors hover:border-foreground/20"
+              >
+                <div className="flex items-start justify-between">
+                  <div className="flex h-11 w-11 items-center justify-center border border-foreground/10">
+                    <reason.icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-6 text-lg font-medium text-white">
-                    {reason.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-                    {reason.description}
-                  </p>
+                  <div className="text-right">
+                    <p className="font-display text-2xl">{reason.stat}</p>
+                    <p className="text-xs text-muted-foreground">{reason.statLabel}</p>
+                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 sm:py-28">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-              <SectionHeader
-                badge="Platform Investment"
-                title="Investing in Big Film Fund"
-                description="This isn't about investing in one film. It's your chance to own a stake in the platform itself."
-              />
-
-              <div className="space-y-4">
-                {goals.map((goal, i) => (
-                  <div
-                    key={i}
-                    className="flex items-start gap-4 rounded-xl border border-zinc-800 bg-zinc-900/40 p-5"
-                  >
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-600/10 text-xs font-medium text-red-500">
-                      {i + 1}
-                    </span>
-                    <p className="text-sm leading-relaxed text-zinc-300 sm:text-base">
-                      {goal}
-                    </p>
-                  </div>
-                ))}
+                <h3 className="mt-6 text-lg font-medium">{reason.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {reason.description}
+                </p>
               </div>
-            </div>
-
-            <p className="mt-12 text-center text-base italic text-zinc-500 sm:text-lg">
-              You&apos;re not just backing one story. You&apos;re helping build
-              the engine behind a new wave of investor-backed films.
-            </p>
+            ))}
           </div>
-        </section>
-      </main>
-    </SiteLayout>
+        </div>
+      </section>
+
+      <section className="py-24 lg:py-32">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
+          <SectionHeader
+            badge="Platform Investment"
+            title="Investing in Big Film Fund"
+            description="This isn't about investing in one film. It's your chance to own a stake in the platform itself."
+            className="mb-16"
+          />
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {goals.map((goal, i) => (
+              <div
+                key={goal}
+                className="flex gap-6 border border-foreground/10 p-8"
+              >
+                <span className="font-display text-4xl text-foreground/20">
+                  {i + 1}
+                </span>
+                <p className="text-lg leading-relaxed">{goal}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-12 max-w-3xl text-lg text-muted-foreground">
+            You&apos;re not just backing one story. You&apos;re helping build the
+            engine behind a new wave of investor-backed films.
+          </p>
+        </div>
+      </section>
+    </SiteShell>
   );
 }

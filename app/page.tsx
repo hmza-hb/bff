@@ -1,28 +1,29 @@
-import { SiteLayout } from "@/components/site-layout";
-import { Hero } from "@/components/hero";
-import { ProblemSection } from "@/components/problem-section";
-import { SolutionSection } from "@/components/solution-section";
-import { LogoSection } from "@/components/logo-section";
-import { TestimonialsSection } from "@/components/testimonials-section";
-import { FeaturesSection } from "@/components/features-section";
-import { PricingSection } from "@/components/pricing-section";
-import { FilmCarousel } from "@/components/film-carousel";
-import { CtaSection } from "@/components/cta-section";
+import { HeroSection } from "@/components/landing/hero-section";
+import { FeaturesSection } from "@/components/landing/features-section";
+import { HowItWorksSection } from "@/components/landing/how-it-works-section";
+import { InfrastructureSection } from "@/components/landing/infrastructure-section";
+import { MetricsSection } from "@/components/landing/metrics-section";
+import { IntegrationsSection } from "@/components/landing/integrations-section";
+import { SecuritySection } from "@/components/landing/security-section";
+import { TestimonialsSection } from "@/components/landing/testimonials-section";
+import { CtaSection } from "@/components/landing/cta-section";
+import { FooterSection } from "@/components/landing/footer-section";
+import { Navigation } from "@/components/landing/navigation";
 
 export default function Home() {
   return (
-    <SiteLayout navbarVariant="overlay">
-      <main>
-        <Hero />
-        <ProblemSection />
-        <SolutionSection />
-        <FilmCarousel className="border-y border-zinc-800/80 bg-zinc-950" />
-        <LogoSection />
-        <TestimonialsSection />
-        <FeaturesSection />
-        <PricingSection />
-        <CtaSection />
-      </main>
-    </SiteLayout>
+    <main className="noise-overlay relative min-h-screen overflow-x-hidden">
+      <Navigation />
+      <HeroSection />
+      <FeaturesSection />
+      <HowItWorksSection />
+      <InfrastructureSection />
+      <MetricsSection />
+      <IntegrationsSection />
+      <SecuritySection />
+      <TestimonialsSection />
+      <CtaSection />
+      <FooterSection />
+    </main>
   );
 }

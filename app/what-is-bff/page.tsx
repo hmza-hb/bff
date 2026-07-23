@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SiteLayout } from "@/components/site-layout";
-import { PageHero } from "@/components/page-hero";
-import { SectionHeader } from "@/components/section-header";
-import { FilmCarousel } from "@/components/film-carousel";
+import { SiteShell } from "@/components/landing/site-shell";
+import { PageHero } from "@/components/landing/page-hero";
+import { SectionHeader } from "@/components/landing/section-header";
 import { Button } from "@/components/ui/button";
 import {
   Compass,
@@ -62,84 +61,153 @@ const pillars = [
   },
 ];
 
+const films = [
+  {
+    title: "Midnight Protocol",
+    genre: "Sci-Fi Thriller",
+    status: "Pre-Production",
+    minInvestment: "$100",
+    targetRaise: "$2.5M",
+  },
+  {
+    title: "The Last Reel",
+    genre: "Drama",
+    status: "In Development",
+    minInvestment: "$250",
+    targetRaise: "$1.8M",
+  },
+  {
+    title: "Neon Crossroads",
+    genre: "Action",
+    status: "Casting",
+    minInvestment: "$100",
+    targetRaise: "$4.2M",
+  },
+  {
+    title: "Echoes of Tomorrow",
+    genre: "Documentary",
+    status: "Funding Open",
+    minInvestment: "$100",
+    targetRaise: "$950K",
+  },
+];
+
 export default function WhatIsBffPage() {
   return (
-    <SiteLayout>
-      <main>
-        <PageHero
-          badge="What is BFF"
-          title="Film Investing Made Simple"
-          subtitle="Big Film Fund gives everyday people the chance to invest in real Hollywood films, and share in the potential upside as those films earn."
+    <SiteShell>
+      <PageHero
+        badge="What is BFF"
+        title="Film Investing Made Simple"
+        subtitle="Big Film Fund gives everyday people the chance to invest in real Hollywood films, and share in the potential upside as those films earn."
+      >
+        <Button
+          asChild
+          size="lg"
+          className="h-12 rounded-full bg-foreground px-8 text-background hover:bg-foreground/90"
         >
-          <Button asChild variant="solid" size="lg" className="h-12 px-8">
-            <Link href="/#waitlist">Join the Waitlist</Link>
-          </Button>
-        </PageHero>
+          <Link href="/#waitlist">Join the Waitlist</Link>
+        </Button>
+      </PageHero>
 
-        <section className="border-b border-zinc-800/80 py-20 sm:py-28">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <SectionHeader
-              badge="How It Works"
-              title="Three Steps to Ownership"
-              description="We carefully evaluate each opportunity, offer investments starting from $100, and give you VIP-level access and perks along the way."
-              align="center"
-              className="mx-auto mb-16 items-center"
-            />
+      <section className="border-y border-foreground/10 py-24 lg:py-32">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
+          <SectionHeader
+            badge="How It Works"
+            title="Three Steps to Ownership"
+            description="We carefully evaluate each opportunity, offer investments starting from $100, and give you VIP-level access and perks along the way."
+            align="center"
+            className="mx-auto mb-16"
+          />
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              {steps.map((step, i) => (
-                <div
-                  key={step.title}
-                  className="glass-card group rounded-2xl p-8 transition-colors hover:border-red-600/20"
-                >
-                  <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-red-600/10 text-red-500 transition-colors group-hover:bg-red-600 group-hover:text-white">
-                    <step.icon className="h-5 w-5" />
+          <div className="grid gap-6 md:grid-cols-3">
+            {steps.map((step, i) => (
+              <div
+                key={step.title}
+                className="group border border-foreground/10 p-8 transition-colors hover:border-foreground/20"
+              >
+                <div className="mb-6 flex h-12 w-12 items-center justify-center border border-foreground/10 transition-colors group-hover:bg-foreground group-hover:text-background">
+                  <step.icon className="h-5 w-5" />
+                </div>
+                <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+                  Step {i + 1}
+                </span>
+                <h3 className="mt-2 font-display text-xl">{step.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 lg:py-32">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
+          <SectionHeader
+            badge="The Experience"
+            title="A Fully Digital Insider Experience"
+            description="A fully digital, insider-level experience, built for everyone — not just industry insiders."
+            className="mb-16"
+          />
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            {pillars.map((pillar) => (
+              <div
+                key={pillar.title}
+                className="border border-foreground/10 bg-foreground/[0.02] p-8"
+              >
+                <pillar.icon className="mb-4 h-6 w-6" />
+                <h3 className="text-lg font-medium">{pillar.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {pillar.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-foreground/10 py-24 lg:py-32">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
+          <SectionHeader
+            badge="Featured Slate"
+            title="Upcoming Film Opportunities"
+            description="Curated slate of high-potential projects — vetted by industry veterans, open to everyday investors."
+            className="mb-16"
+          />
+
+          <div className="grid gap-px bg-foreground/10 md:grid-cols-2">
+            {films.map((film) => (
+              <div key={film.title} className="bg-background p-8">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="font-display text-2xl">{film.title}</h3>
+                    <p className="mt-1 font-mono text-sm text-muted-foreground">
+                      {film.genre}
+                    </p>
                   </div>
-                  <span className="text-xs font-medium tracking-wider text-zinc-500 uppercase">
-                    Step {i + 1}
+                  <span className="font-mono text-xs text-muted-foreground">
+                    {film.status}
                   </span>
-                  <h3 className="mt-2 text-xl font-medium text-white">
-                    {step.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-                    {step.description}
-                  </p>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="border-b border-zinc-800/80 py-20 sm:py-28">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <SectionHeader
-              badge="The Experience"
-              title="A Fully Digital Insider Experience"
-              description="A fully digital, insider-level experience, built for everyone — not just industry insiders."
-              className="mb-16"
-            />
-
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-              {pillars.map((pillar) => (
-                <div
-                  key={pillar.title}
-                  className="rounded-2xl border border-zinc-800 bg-zinc-900/30 p-8"
-                >
-                  <pillar.icon className="mb-4 h-6 w-6 text-red-500" />
-                  <h3 className="text-lg font-medium text-white">
-                    {pillar.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-                    {pillar.description}
-                  </p>
+                <p className="mt-4 font-mono text-xs text-muted-foreground">
+                  Opening soon
+                </p>
+                <div className="mt-6 flex gap-8 font-mono text-sm">
+                  <div>
+                    <p className="text-muted-foreground">Min. Investment</p>
+                    <p className="font-display text-xl">{film.minInvestment}</p>
+                  </div>
+                  <div>
+                    <p className="text-muted-foreground">Target Raise</p>
+                    <p className="font-display text-xl">{film.targetRaise}</p>
+                  </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
-        </section>
-
-        <FilmCarousel className="bg-zinc-950" />
-      </main>
-    </SiteLayout>
+        </div>
+      </section>
+    </SiteShell>
   );
 }
